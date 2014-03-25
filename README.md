@@ -20,5 +20,5 @@ grunt compile
 
 ## 他
 - javascriptプラグインは``bower install hogehoge``でインストールして``Gruntfile.coffee``に追記してね<3
-- bootstrapとjqueryがすでに``bower.json``に入ってしまっているのはご愛嬌
+- bootstrapとjqueryがすでに``bower.json``, ``Gruntfile.coffee``に入ってしまっているのはご愛嬌
 - コンパイルするとcoffescriptとsassがjsとcssとなって``assets``フォルダに放り込まれます
