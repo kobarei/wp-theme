@@ -13,7 +13,7 @@ module.exports = (grunt) ->
     coffee:
       compile:
         files:
-          "assets/javascripts/main.js": ["library/javascripts/{,*/}*.{coffee,litcoffee,coffee.md}"]
+          "assets/javascripts/main.js": ["library/coffee/{,*/}*.{coffee,litcoffee,coffee.md}"]
 
     sass:
       dist:
@@ -22,7 +22,7 @@ module.exports = (grunt) ->
 
     watch:
         coffee:
-          files: ["library/javascripts/{,*/}*.{coffee,litcoffee,coffee.md}"]
+          files: ["library/coffee/{,*/}*.{coffee,litcoffee,coffee.md}"]
           tasks: ['coffee']
         sass:
           files: ["library/styles/{,*/}*.{scss,sass}"]
@@ -44,11 +44,15 @@ module.exports = (grunt) ->
             src: [
               "bower_components/bootstrap/dist/js/bootstrap.js"
               "bower_components/jquery/dist/jquery.js"
+              # add bower components here after install
             ]
           }
           {
             dest: "assets/styles/vendor.css"
-            src: "bower_components/bootstrap/dist/css/bootstrap.css"
+            src: [
+              "bower_components/bootstrap/dist/css/bootstrap.css"
+              # add bower components here after install
+            ]
           }
         ]
 
