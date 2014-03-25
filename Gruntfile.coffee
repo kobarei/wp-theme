@@ -1,6 +1,7 @@
 "use strict"
 
 module.exports = (grunt) ->
+  grunt.loadNpmTasks "grunt-contrib-watch"
   grunt.loadNpmTasks "grunt-contrib-coffee"
   grunt.loadNpmTasks "grunt-contrib-sass"
   grunt.loadNpmTasks "grunt-contrib-clean"
@@ -18,6 +19,14 @@ module.exports = (grunt) ->
       dist:
         files:
           "style.css": ["library/styles/{,*/}*.{scss,sass}"]
+
+    watch:
+        coffee:
+          files: ["library/javascripts/{,*/}*.{coffee,litcoffee,coffee.md}"]
+          tasks: ['coffee']
+        sass:
+          files: ["library/styles/{,*/}*.{scss,sass}"]
+          tasks: ['sass']
 
     clean:
       dist:
