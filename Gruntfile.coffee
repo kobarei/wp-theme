@@ -6,7 +6,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks "grunt-contrib-sass"
   grunt.loadNpmTasks "grunt-contrib-clean"
   grunt.loadNpmTasks "grunt-contrib-uglify"
-  grunt.loadNpmTasks "grunt-contrib-copy"
+  grunt.loadNpmTasks "grunt-contrib-concat"
   grunt.loadNpmTasks "grunt-contrib-cssmin"
 
   grunt.initConfig
@@ -36,15 +36,15 @@ module.exports = (grunt) ->
             "style.css"
           ]
 
-    copy:
+    concat:
       dist:
         files: [
           {
             dest: "assets/javascripts/vendor.js"
             src: [
+              "bower_components/jquery/dist/jquery.js"
               # add bower components here after bower install
               # "bower_components/bootstrap/dist/js/bootstrap.js"
-              "bower_components/jquery/dist/jquery.js"
             ]
           }
           {
@@ -86,7 +86,7 @@ module.exports = (grunt) ->
     "clean",
     "coffee",
     "sass",
-    "copy:dist",
+    "concat",
     "uglify",
     "cssmin"
   ]
