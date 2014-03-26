@@ -42,16 +42,16 @@ module.exports = (grunt) ->
           {
             dest: "assets/javascripts/vendor.js"
             src: [
-              "bower_components/bootstrap/dist/js/bootstrap.js"
+              # add bower components here after bower install
+              # "bower_components/bootstrap/dist/js/bootstrap.js"
               "bower_components/jquery/dist/jquery.js"
-              # add bower components here after install
             ]
           }
           {
             dest: "assets/styles/vendor.css"
             src: [
-              "bower_components/bootstrap/dist/css/bootstrap.css"
-              # add bower components here after install
+              # add bower components here after bower install
+              # "bower_components/bootstrap/dist/css/bootstrap.css"
             ]
           }
         ]
