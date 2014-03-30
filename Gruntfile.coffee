@@ -26,7 +26,7 @@ module.exports = (grunt) ->
           tasks: ['coffee']
         sass:
           files: ["library/styles/{,*/}*.{scss,sass}"]
-          tasks: ['sass']
+          tasks: ['concat:sass', 'sass']
 
     clean:
       dist:
@@ -37,7 +37,7 @@ module.exports = (grunt) ->
           ]
 
     concat:
-      dist:
+      coffee:
         files: [
           {
             dest: "assets/javascripts/vendor.js"
@@ -52,6 +52,17 @@ module.exports = (grunt) ->
             src: [
               # add bower components here after bower install
               # "bower_components/bootstrap/dist/css/bootstrap.css"
+            ]
+          }
+        ]
+      sass:
+        files: [
+          {
+            dest: "library/styles/style.scss"
+            src: [
+              # add scss here
+              # "library/styles/main.scss"
+              # "library/styles/front_page.scss"
             ]
           }
         ]
@@ -85,8 +96,8 @@ module.exports = (grunt) ->
   grunt.registerTask "compile", [
     "clean",
     "coffee",
-    "sass",
     "concat",
+    "sass",
     "uglify",
     "cssmin"
   ]
