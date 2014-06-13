@@ -13,7 +13,7 @@ module.exports = (grunt) ->
     coffee:
       compile:
         files:
-          "public/javascripts/main.js": ["assets/javascripts/{,*/}*.{coffee,litcoffee,coffee.md}"]
+          "public/javascripts/main.js": ["assets/coffee/{,*/}*.{coffee,litcoffee,coffee.md}"]
 
     sass:
       dist:
@@ -26,7 +26,7 @@ module.exports = (grunt) ->
 
     watch:
       coffee:
-        files: ["assets/javascripts/{,*/}*.{coffee,litcoffee,coffee.md}"]
+        files: ["assets/coffee/{,*/}*.{coffee,litcoffee,coffee.md}"]
         tasks: ['concat:bower', 'coffee', 'uglify']
       sass:
         files: ["assets/styles/{,*/}*.{scss,sass}"]
