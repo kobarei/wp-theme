@@ -7,13 +7,13 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>awajishima rc</title>
-  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/styles/vendor.css">
+  <title>Theme</title>
+  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/public/styles/vendor.css">
   <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>">
 </head>
 <body>
-
-  <script src="<?php echo get_template_directory_uri(); ?>/assets/javascripts/vendor.js"></script>
-  <script src="<?php echo get_template_directory_uri(); ?>/assets/javascripts/main.js"></script>
+  Hello World.
+  <script src="<?php echo get_template_directory_uri(); ?>/public/javascripts/vendor.js"></script>
+  <script src="<?php echo get_template_directory_uri(); ?>/public/javascripts/main.js"></script>
 </body>
 </html>
