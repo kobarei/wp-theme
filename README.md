@@ -4,9 +4,9 @@
 
 ## どこに書くの?
 ### coffeescript
-``library/coffee``フォルダ内
+``assets/coffee``フォルダ内
 ### sass
-``library/styles``フォルダ内
+``assets/styles``フォルダ内
 
 ## どこに吐き出されるの?
 ### coffeescript
