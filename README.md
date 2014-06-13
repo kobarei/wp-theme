@@ -8,6 +8,13 @@
 ### sass
 ``library/styles``フォルダ内
 
+## どこに吐き出されるの?
+### coffeescript
+``public/javascripts``フォルダ内
+### sass
+``styles.css``
+``public/styles``フォルダ内
+
 ## コンパイル
 ### sass, coffeeの監視&自動コンパイル
 ```

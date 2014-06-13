@@ -1,5 +1,9 @@
 .sass-cache
-assets
 bower_components
 node_modules
 .DS_Store
+sftp-config.json
+.tmp
+public/styles
+public/javascripts
+style.css

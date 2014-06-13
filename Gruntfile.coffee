@@ -13,34 +13,40 @@ module.exports = (grunt) ->
     coffee:
       compile:
         files:
-          "assets/javascripts/main.js": ["library/coffee/{,*/}*.{coffee,litcoffee,coffee.md}"]
+          "public/javascripts/main.js": ["assets/javascripts/{,*/}*.{coffee,litcoffee,coffee.md}"]
 
     sass:
       dist:
-        files:
-          "style.css": ["library/styles/{,*/}*.{scss,sass}"]
+        files:[
+          {
+            dest: "style.css"
+            src: ".tmp/style.scss"
+          }
+        ]
 
     watch:
-        coffee:
-          files: ["library/coffee/{,*/}*.{coffee,litcoffee,coffee.md}"]
-          tasks: ['coffee']
-        sass:
-          files: ["library/styles/{,*/}*.{scss,sass}"]
-          tasks: ['concat:sass', 'sass']
+      coffee:
+        files: ["assets/javascripts/{,*/}*.{coffee,litcoffee,coffee.md}"]
+        tasks: ['concat:bower', 'coffee', 'uglify']
+      sass:
+        files: ["assets/styles/{,*/}*.{scss,sass}"]
+        tasks: ['concat:sass', 'sass', 'cssmin']
 
     clean:
       dist:
         files:
           src: [
-            "assets"
+            "public/styles"
+            "public/javascripts"
+            ".tmp"
             "style.css"
           ]
 
     concat:
-      coffee:
+      bower:
         files: [
           {
-            dest: "assets/javascripts/vendor.js"
+            dest: "public/javascripts/vendor.js"
             src: [
               "bower_components/jquery/dist/jquery.js"
               # add bower components here after bower install
@@ -48,7 +54,7 @@ module.exports = (grunt) ->
             ]
           }
           {
-            dest: "assets/styles/vendor.css"
+            dest: "public/styles/vendor.css"
             src: [
               # add bower components here after bower install
               # "bower_components/bootstrap/dist/css/bootstrap.css"
@@ -58,10 +64,10 @@ module.exports = (grunt) ->
       sass:
         files: [
           {
-            dest: "library/styles/style.scss"
+            dest: ".tmp/style.scss"
             src: [
               # add scss here
-              # "library/styles/main.scss"
+              "library/styles/main.scss"
               # "library/styles/front_page.scss"
             ]
           }
@@ -71,12 +77,12 @@ module.exports = (grunt) ->
       dist:
         files: [
           {
-            dest: "assets/javascripts/vendor.js"
-            src: "assets/javascripts/vendor.js"
+            dest: "public/javascripts/vendor.js"
+            src: "public/javascripts/vendor.js"
           }
           {
-            dest: "assets/javascripts/main.js"
-            src: "assets/javascripts/main.js"
+            dest: "public/javascripts/main.js"
+            src: "public/javascripts/main.js"
           }
         ]
 
@@ -84,8 +90,8 @@ module.exports = (grunt) ->
       dist:
         files: [
           {
-            dest: "assets/styles/vendor.css"
-            src: "assets/styles/vendor.css"
+            dest: "public/styles/vendor.css"
+            src: "public/styles/vendor.css"
           }
           {
             dest: "style.css"
@@ -94,10 +100,10 @@ module.exports = (grunt) ->
         ]
 
   grunt.registerTask "compile", [
-    "clean",
-    "coffee",
-    "concat",
-    "sass",
-    "uglify",
+    "clean"
+    "coffee"
+    "concat"
+    "sass"
+    "uglify"
     "cssmin"
   ]
