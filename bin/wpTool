@@ -1,0 +1,36 @@
+#!/bin/bash
+
+RETVAL=0
+prog=wpTool
+dir=$pwd
+wpTemplatePath=/path/to/your/wp-theme
+
+deploy() {
+  echo "Enter $wpTemplatePath"
+  cd $wpTemplatePath
+  git pull origin master
+  grunt compile
+  sudo service php-fpm restart
+  sudo service nginx restart
+  echo "Exit $wpTemplatePath"
+}
+
+restart() {
+  sudo service php-fpm restart
+  sudo service nginx restart
+}
+
+case "$1" in
+  deploy)
+    deploy
+    ;;
+  restart)
+    restart
+    ;;
+  *)
+    echo $"Usage: $prog {deploy|restart}"
+    RETVAL=2
+esac
+
+cd $dir
+exit $RETVAL
