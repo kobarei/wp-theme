@@ -10,12 +10,11 @@ deploy() {
   cd $wpTemplatePath
   git pull origin master
   grunt compile
-  sudo service php-fpm restart
-  sudo service nginx restart
+  restartServer
   echo "Exit $wpTemplatePath"
 }
 
-restart() {
+restartServer() {
   sudo service php-fpm restart
   sudo service nginx restart
 }
@@ -28,7 +27,7 @@ case "$1" in
     restart
     ;;
   *)
-    echo $"Usage: $prog {deploy|restart}"
+    echo $"Usage: $prog {deploy|restartServer}"
     RETVAL=2
 esac
 
