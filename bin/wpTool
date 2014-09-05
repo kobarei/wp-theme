@@ -3,7 +3,7 @@
 RETVAL=0
 prog=wpTool
 dir=$pwd
-wpTemplatePath=/path/to/your/wp-theme
+wpTemplatePath=/path/to/your/wp-theme # wordpressのthemeへのpath
 
 deploy() {
   echo "Enter $wpTemplatePath"
@@ -15,6 +15,8 @@ deploy() {
 }
 
 restartServer() {
+  # CentOSじゃなかったり,
+  # php-fpm, nginx以外でwordpress運用してる人はここ編集してください
   sudo service php-fpm restart
   sudo service nginx restart
 }
@@ -23,8 +25,8 @@ case "$1" in
   deploy)
     deploy
     ;;
-  restart)
-    restart
+  restartServer)
+    restartServer
     ;;
   *)
     echo $"Usage: $prog {deploy|restartServer}"
